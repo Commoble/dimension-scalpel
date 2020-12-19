@@ -1,0 +1,6 @@
+{
+	"dimensionscalpel.commands.remove.kick_reason": "Dimension was removed",
+	"dimensionscalpel.commands.remove.success": "Removed dimension %s",
+	"dimensionscalpel.commands.remove.kick_count": "%s players were kicked from dimension %s",
+	"dimensionscalpel.commands.remove.vanilla_fail": "Cannot remove vanilla dimension %s" 
+}
