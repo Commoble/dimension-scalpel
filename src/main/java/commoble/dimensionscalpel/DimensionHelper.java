@@ -33,24 +33,12 @@ public class DimensionHelper
 		@SuppressWarnings("rawtypes")
 		public static final MutableInstanceField<SimpleRegistry, ObjectList<Dimension>> entryList =
 			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_243533_bf");
-//		@SuppressWarnings("rawtypes")
-//		public static final MutableInstanceField<SimpleRegistry, Object2IntMap<Dimension>> entryIndexMap =
-//			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_243534_bg");
-//		@SuppressWarnings("rawtypes")
-//		public static final MutableInstanceField<SimpleRegistry, BiMap<ResourceLocation, Dimension>> registryObjects =
-//			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_82596_a");
 		@SuppressWarnings("rawtypes")
 		public static final MutableInstanceField<SimpleRegistry, BiMap<RegistryKey<Dimension>, Dimension>> keyToObjectMap =
 			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_239649_bb_");
 		@SuppressWarnings("rawtypes")
 		public static final MutableInstanceField<SimpleRegistry, Map<Dimension, Lifecycle>> objectToLifecycleMap =
 			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_243535_bj");
-//		@SuppressWarnings("rawtypes")
-//		public static final MutableInstanceField<SimpleRegistry, Object[]> values =
-//			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_186802_b");
-//		@SuppressWarnings("rawtypes")
-//		public static final MutableInstanceField<SimpleRegistry, Integer> nextFreeId =
-//			ReflectionBuddy.getInstanceField(SimpleRegistry.class, "field_195869_d");
 	}
 	
 	public static class DimensionGeneratorSettingsAccess
@@ -88,9 +76,6 @@ public class DimensionHelper
 		// we should also probably move players from that world into the overworld if possible
 		DimensionGeneratorSettings dimensionGeneratorSettings = server.getServerConfiguration()
 			.getDimensionGeneratorSettings();
-//		SimpleRegistry<Dimension> dimensionRegistry = server.getServerConfiguration()
-//			.getDimensionGeneratorSettings()
-//			.func_236224_e_();
 		
 		// set of keys whose worlds were found and removed
 		Set<RegistryKey<Dimension>> removedKeys = new HashSet<>();
@@ -139,37 +124,6 @@ public class DimensionHelper
 			overworldBorder.removeListener(target);
 		}
 	}
-	
-//	private static void removeRegisteredDimension(MinecraftServer server, RegistryKey<Dimension> key, SimpleRegistry<Dimension> dimensionRegistry)
-//	{
-//		// okay, here we go
-//		// the registry has no API for removing objects, so we need to manually do that
-//		// there are five sub-collections that refer to the entry in some way
-//		// we also need to clear the value cache array and reset the next free ID
-//		Dimension removedDimension = dimensionRegistry.getValueForKey(key);
-//		SimpleRegistryAccess.registryObjects.get(dimensionRegistry).remove(key.getLocation());
-//		SimpleRegistryAccess.keyToObjectMap.get(dimensionRegistry).remove(key);
-//		SimpleRegistryAccess.objectToLifecycleMap.get(dimensionRegistry).remove(removedDimension);
-//		SimpleRegistryAccess.entryIndexMap.get(dimensionRegistry).removeInt(removedDimension);
-//		ObjectList<Dimension> oldList = SimpleRegistryAccess.entryList.get(dimensionRegistry);
-//		int oldSize = oldList.size();
-//		ObjectList<Dimension> newList = new ObjectArrayList<>(oldSize - 1);
-//		Object2IntMap<Dimension> newMap = new Object2IntOpenCustomHashMap<>(Util.identityHashStrategy()); 
-//		int nextFreeIndex=0;
-//		for (Dimension dimensionEntry : oldList)
-//		{
-//			if (dimensionEntry != removedDimension)
-//			{
-//				newList.add(nextFreeIndex, dimensionEntry);
-//				newMap.put(dimensionEntry, nextFreeIndex);
-//				nextFreeIndex++;
-//			}
-//		}
-//		SimpleRegistryAccess.entryIndexMap.set(dimensionRegistry, newMap);
-//		SimpleRegistryAccess.entryList.set(dimensionRegistry, newList);
-//		SimpleRegistryAccess.values.set(dimensionRegistry, null);
-//		SimpleRegistryAccess.nextFreeId.set(dimensionRegistry, nextFreeIndex);
-//	}
 	
 	private static void removeRegisteredDimensions(MinecraftServer server, DimensionGeneratorSettings settings, Set<RegistryKey<Dimension>> keysToRemove)
 	{
