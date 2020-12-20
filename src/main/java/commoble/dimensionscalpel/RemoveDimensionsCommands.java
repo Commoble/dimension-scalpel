@@ -64,7 +64,7 @@ public class RemoveDimensionsCommands
 	public static ArgumentBuilder<CommandSource,?> buildResetDimensionsCommand()
 	{
 		return Commands.literal(RESET_DIMENSIONS_COMMAND)
-			.requires(DimensionScalpel.isPermissionSufficient(DimensionScalpel.INSTANCE.serverConfig.printPermission))
+			.requires(DimensionScalpel.isPermissionSufficient(DimensionScalpel.INSTANCE.serverConfig.resetPermission))
 			.executes(RemoveDimensionsCommands::doResetDimensions);
 	}
 	

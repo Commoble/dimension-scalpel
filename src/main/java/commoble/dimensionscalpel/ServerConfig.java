@@ -23,7 +23,7 @@ public class ServerConfig
 		
 		this.printPermission = subscriber.subscribe(builder
 			.comment("Permission level required to use /dimensionscalpel print")
-			.define("remove_permission", 2));
+			.define("print", 2));
 		
 		builder.pop();
 	}
