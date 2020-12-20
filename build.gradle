@@ -83,7 +83,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    compile fg.deobf("curse.maven:worldblender-364445:3125561")
+    // fg.deobf("curse.maven:worldblender-364445:3125561")
 	// compile against the JEI API but do not include it at runtime
 	// compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
 	// at runtime, use the full JEI jar
